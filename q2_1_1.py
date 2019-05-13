@@ -1,15 +1,6 @@
-import json
+from functools import lru_cache
 
-def memoize(fn):
-    memo = {}
-    def wrapper(*args, **kwargs):
-        key = json.dumps({ 'args': args, 'kwargs': kwargs })
-        if key not in memo:
-            memo[key] = fn(*args, **kwargs)
-        return memo [key]
-    return wrapper
-
-@memoize
+@lru_cache()
 def fib(n):
     if n <= 1:
         return n
