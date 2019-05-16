@@ -1,5 +1,6 @@
 from sys import stdin
 
+# 部分和問題
 def solve(s, nums, idx = 0):
     if idx == len(nums):
         return s == 0
